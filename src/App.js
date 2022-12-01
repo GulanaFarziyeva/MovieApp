@@ -1,9 +1,8 @@
 import React from "react";
-import SearchBar from "./Searchbar";
-import MovieList from "./Movielist";
+import SearchBar from "./component/Searchbar";
+import MovieList from "./component/Movielist";
 import axios from "axios";
-import "../assets/style.css";
-import Hero from "./Hero";
+import Hero from "./component/Hero";
 
 class App extends React.Component {
   state = {
@@ -20,7 +19,7 @@ class App extends React.Component {
     this.setState({ movies: response.data.results });
   }
 
-  deletedMovie = async (movie) => {
+  removeMovie = async (movie) => {
     axios.delete(`http://localhost:3002/movies/${movie.id}`);
 
     const newMovieList = this.state.movies.filter(
@@ -51,13 +50,18 @@ class App extends React.Component {
       <div className="background">
         <Hero />
 
-        <SearchBar searchMovieProp={this.searchMovie} />
+        <SearchBar
+          searchMovieProp={this.searchMovie}
+          onKeyDown={() => {
+            window.scrollTo({ top: "", behavior: "smooth" });
+          }}
+        />
 
-        <div className="row mt-4">
-          <div className="col-lg-11 m-auto mt-4">
+        <div className="row container m-auto mt-4">
+          <div className="col-lg-12 mt-4">
             <MovieList
               movies={filteredMovies}
-              deletedMovieProp={this.deletedMovie}
+              removeMovieProp={this.removeMovie}
             />
           </div>
         </div>
