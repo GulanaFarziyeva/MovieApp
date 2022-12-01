@@ -1,0 +1,89 @@
+* {
+  font-family: "Merriweather", serif;
+}
+
+.background {
+  background-color: rgba(0, 0, 0, 0.924);
+  overflow-x: hidden;
+}
+.search-input {
+  background-color: #3f4245 !important;
+  border: none !important;
+  padding: 6px 20px !important;
+}
+
+.search-input:focus {
+  outline: none !important;
+}
+
+.search-input:focus .movie-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.search-input::placeholder {
+  color: #fff !important;
+}
+
+.logo {
+  width: 100px;
+  height: 35px;
+  flex-shrink: 4;
+}
+
+.navbar-menu {
+  background-color: #282a2d;
+  height: 60px;
+}
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 999;
+}
+
+.navbar-form {
+  flex-grow: 4 !important;
+  flex-shrink: 1;
+}
+
+.navbar-link {
+  color: #fff !important;
+}
+
+.hero-content {
+  position: relative;
+}
+
+.hero-text {
+  top: 30%;
+  left: 8%;
+  width: 40%;
+}
+
+.hero-video {
+  width: 100vw;
+}
+
+.hero-text-head {
+  font-size: 900;
+  font-size: 50px;
+  font-family: "Merriweather", serif;
+}
+
+
+.movie-overlay {
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+  top: 100%;
+  transition: all 0.5s ease;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 0.9;
+  top: 0%;
+  cursor: pointer;
+}
